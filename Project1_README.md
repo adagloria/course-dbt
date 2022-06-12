@@ -1,14 +1,16 @@
 1. How many users do we have?
 
-select count(distinct user_guid) from dbt.dbt_adaugo_o.stg_greenery__users;
 
-130 users
+select count(distinct user_guid) 
+from dbt.dbt_adaugo_o.stg_greenery__users;
+
+Result: 130 users
 
 ------------------------------------------------------------------------
 
 2. On average, how many orders do we receive per hour?
 
-SQL Code:
+
 	with order_count as (
 	SELECT count(distinct order_id) orders, 
 			EXTRACT(HOUR FROM created_at), EXTRACT(DAY FROM created_at)
@@ -23,8 +25,8 @@ Result:
 -----------------------------------------------------------------------------
 3. On average, how long does an order take from being placed to being delivered?
 
-SQL code:
-select  avg(delivered_at - created_at) as avg_delivery_time 
+
+select avg(delivered_at - created_at) as avg_delivery_time 
 from dbt.dbt_adaugo_o.stg_greenery__orders
 where delivered_at is not null;
 
@@ -36,7 +38,6 @@ Result:
 
 Note: you should consider a purchase to be a single order. In other words, if a user places one order for 3 products, they are considered to have made 1 purchase.
 
-SQL Code:
 
 with tmp_table as (
 select user_id, count(distinct order_id)counts 
@@ -54,7 +55,7 @@ Result: Three_purchases: 34
 -------------------------------------------------------------------------
 5. On average, how many unique sessions do we have per hour?
 
-SQL code:
+
 	with counts as 
 	(SELECT date_trunc('hour',  created_at) as hour, 
     count(distinct(session_id)) counts
