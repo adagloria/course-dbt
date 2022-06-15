@@ -50,7 +50,7 @@ select sum(case when counts >= 3 then 1 else 0 end) as Three_or_more_purchases,
   from tmp_table
 ```
 
-Result: Three_purchases: 71; 
+Result: Three_or_more_purchases: 71; 
         Two_purchases: 28; 
         One_purchase: 25
 
