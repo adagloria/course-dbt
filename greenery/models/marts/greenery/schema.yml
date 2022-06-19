@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: fct_promo_tracker
+    columns:
+      - name: promo_id
+        tests:
+          - unique
+          - not_null
+
+  - name: fct_order_delivery
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null

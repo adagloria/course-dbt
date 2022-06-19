@@ -17,10 +17,23 @@ sources:
 
     tables:
       - name: users
+        description: user information
+
       - name: addresses
+        description: users address information 
+
       - name: events
+        description: type of action performed by user
+
       - name: orders
+        description: order details
+
       - name: order_items
+        description: details of ordered order_items
+
       - name: products
+        description: products inventory
+
       - name: promos
+        description: promo information 
        
