@@ -21,7 +21,7 @@
 
 ## 4. What package did you install?
 
-   - package: dbt-labs/dbt_utils
+  - package: dbt-labs/dbt_utils
     version: 0.8.6
   - package: dbt-labs/codegen
     version: 0.7.0
